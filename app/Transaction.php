@@ -15,7 +15,7 @@ class Transaction extends Model
     
     public function type()
     {
-        return $this->belongsTo('App\TransactionType');
+        return $this->belongsTo('App\TransactionType','transaction_type_id');
     }
     
     public function card()

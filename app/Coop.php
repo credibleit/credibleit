@@ -17,4 +17,9 @@ class Coop extends Model
     {
         return $this->hasMany('App\Branch');
     }
+    
+    public function meta()
+    {
+        return $this->hasMany('App\CoopMEta');
+    }
 }

@@ -13,7 +13,7 @@ class Kernel extends ConsoleKernel
      * @var array
      */
     protected $commands = [
-        //
+        Commands\CheckUsersDue::class,
     ];
 
     /**
@@ -24,8 +24,9 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
-        // $schedule->command('inspire')
-        //          ->hourly();
+        $schedule->command('credit:check-dues')
+                 ->monthlyOn(1,'00:01')
+                 ->appendOutputTo(storage_path() . '/logs/check_due.log');
     }
 
     /**

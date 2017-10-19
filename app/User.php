@@ -28,6 +28,13 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
+    protected $appends = ['name'];
+
+    public function getNameAttribute()
+    {
+        return ucfirst($this->attributes['first_name']) . ' ' . ucfirst($this->attributes['last_name']);
+    }
+
     public function isAdministrator()
     {
         return $this->attributes['role_id'] == 1;

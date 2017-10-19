@@ -10,11 +10,6 @@ class Branch extends Model
 	use SoftDeletes;
     protected $table = 'coop_branch';
     
-    public function meta()
-    {
-        return $this->hasMany('App\BranchMeta');
-    }
-    
     public function coop()
     {
         return $this->belongsTo('App\Coop');
